@@ -49,7 +49,6 @@ class MenuController extends Controller
             'image' => $image,
             'price' => $request->price
         ]);
-
         if ($request->has('categories')) {
             $menu->categories()->attach($request->categories);
         }
@@ -67,6 +66,7 @@ class MenuController extends Controller
     public function edit(Menu $menu)
     {
         $categories = Category::all();
+
         return view('admin.menus.edit', compact('menu', 'categories'));
     }
 
@@ -96,7 +96,6 @@ class MenuController extends Controller
             'image' => $image,
             'price' => $request->price
         ]);
-
         if ($request->has('categories')) {
             $menu->categories()->sync($request->categories);
         }
